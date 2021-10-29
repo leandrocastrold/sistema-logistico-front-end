@@ -1,7 +1,7 @@
 # Sistema Logístico - Front-end
-
+<br/>
 <img  alt="demo image" src="demo.gif" width=600 height=400>
-<br>  <br>  
+ <br/>
 Projeto que simula operações logísticas. Nele é possível cadastrar/receber produtos, gerar separações e conferir/expedir (pedidos). 
 
 ## Tecnologias Utilizadas
@@ -11,7 +11,7 @@ Projeto que simula operações logísticas. Nele é possível cadastrar/receber 
 * Typescript
 * Angular Material
 
-*Execução
+## Execução
 
 `ng serve -o`
 
