@@ -1,0 +1,13 @@
+<div class="toolbar">
+  <div class="operation-container">
+    <span>{{toolbarTitle}}</span>
+  </div>
+  <div class="toolbar-container">
+   
+    <ul>
+      <li class=" inline-list toolbar-links" *ngFor="let link of links, let i =index"><a (click)="mostrar(i)">{{link.name}}</a></li>
+    </ul>
+  </div>
+
+</div>
+

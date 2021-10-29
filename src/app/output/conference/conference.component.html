@@ -1,0 +1,31 @@
+<mat-card-title>Conferência de separações pendentes</mat-card-title>
+<br>
+<ng-container *ngIf="separations">
+    <ng-container *ngFor="let s of separations">
+
+        <mat-card class=" mat-elevation-z4 separation-container" *ngIf="s.status == 'SEPARADO'">
+            <div>
+                <mat-card-title>Separação {{s.id}}</mat-card-title>
+            </div>
+            <br>
+            <div>
+                <p><strong>Valor total da Separação:</strong> {{s.totalPrice}}</p>
+                <ul>
+                    <li *ngFor="let order of s.orderItems">
+                        {{order.product.name}} = {{order.quantity}} unidades
+                    </li>
+                </ul>
+            </div>
+            <p>Status: <strong>{{s.status}}</strong> </p>
+            <button mat-raised-button color="secondary" (click)="cancelSeparation(s.id!)">
+                Cancelar separação </button>
+            <button mat-raised-button color="primary" (click)="changeStatus(s.id!, 'CONFERIDO')">Conferir
+                Separação</button>
+
+        </mat-card>
+
+    </ng-container>
+    <ng-container *ngIf="isEmpty">
+        <h2>Não há separações pendentes.</h2>
+    </ng-container>
+</ng-container>

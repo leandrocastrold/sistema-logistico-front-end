@@ -1,0 +1,36 @@
+<div>
+
+    <mat-card-title>Separação de produtos</mat-card-title>
+    <br>
+    <button mat-raised-button color="primary" (click)="generateSeparation()">Gerar separação</button>
+    <br />
+    <ng-container *ngIf="separations">
+        <ng-container *ngFor="let s of separations">
+            <mat-card class=" mat-elevation-z4 separation-container" *ngIf="s.status == 'INICIADO'">
+
+                <div>
+                    <mat-card-title>Separação {{s.id}}</mat-card-title>
+                </div>
+                <br>
+                <div>
+                    <p><strong>Valor total da Separação:</strong> {{s.totalPrice}}</p>
+                    <ul>
+                        <li *ngFor="let order of s.orderItems">
+                            {{order.product.name}} = {{order.quantity}} unidades
+                        </li>
+                    </ul>
+                </div>
+                <p>Status: <strong>{{s.status}}</strong></p>
+                <button mat-raised-button color="secondary" (click)="cancelSeparation(s.id!)">
+                    Cancelar separação </button>
+                <button mat-raised-button color="primary" (click)="changeStatus(s.id!, 'SEPARADO')">
+                    Finalizar separação </button>
+            </mat-card>
+        </ng-container>
+        <br>
+        <div *ngIf="isEmpty">
+            <h2>Não há separações iniciadas.</h2>
+        </div>
+    </ng-container>
+
+</div>

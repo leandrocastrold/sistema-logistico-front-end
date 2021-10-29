@@ -1,0 +1,30 @@
+<div>
+  <mat-card-title>Recebimento</mat-card-title>
+  <br>
+  <form>
+    <mat-form-field appearance="fill">
+      <mat-label>Código do Produto</mat-label>
+      <input matInput type="number" #productId>
+    </mat-form-field>
+  </form>
+  <button mat-raised-button (click)="findProductPosition(productId.value)" color="primary">Buscar</button>
+  <br>
+  <br>
+  <div class="description" *ngIf="currentPosition">
+    <mat-card class="card-container mat-elevation-z4">
+      <p><strong>Produto: </strong>{{currentPosition.product.name}}</p>
+      <p><strong>Categoria: </strong>{{currentPosition.product.description}}</p>
+
+      <form>
+        <mat-form-field appearance="fill">
+          <mat-label>Quantidade recebida</mat-label>
+          <input matInput type="number" #inputAmount>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary"
+          (click)="addQuantity(currentPosition.id!, inputAmount.value)">Confirmar</button>
+      </form>
+    </mat-card>
+  </div>
+
+</div>
